@@ -13,3 +13,8 @@ export async function fetchLymphocytes() {
     const response = await client.from('lymphocytes').select('*').order('id');
     return response.data;
 }
+
+export async function fetchConstellations() {
+    const response = await client.from('constellations').select('*').order('id');
+    return response.data;
+}
