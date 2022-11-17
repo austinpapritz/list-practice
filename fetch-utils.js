@@ -4,8 +4,7 @@ const SUPABASE_KEY =
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-export async function fetchMountains() {
-    const response = await client.from('mountains').select('*').order('id');
-    console.log(response.data, 'response');
+export async function fetchRanges() {
+    const response = await client.from('ranges').select('*').order('id');
     return response.data;
 }

@@ -1,17 +1,16 @@
 /* Imports */
-import { fetchMountains } from './fetch-utils.js';
-import { renderMountains } from './render-utils.js';
+import { fetchRanges } from './fetch-utils.js';
+import { renderRanges } from './render-utils.js';
 /* Get DOM Elements */
-const mountainsCont = document.querySelector('#mountains-container');
+const mountainsCont = document.querySelector('#ranges-container');
 /* State */
 
 /* Events */
 window.addEventListener('load', async () => {
-    const mountains = await fetchMountains();
-    console.log(mountains.data, 'mountainsAPP');
-    for (let mountain of mountains) {
-        const mountainEl = renderMountains(mountain);
-        mountainsCont.append(mountainEl);
+    const ranges = await fetchRanges();
+    for (let range of ranges) {
+        const rangeEl = renderRanges(range);
+        mountainsCont.append(rangeEl);
     }
 });
 
