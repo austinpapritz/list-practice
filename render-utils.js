@@ -1,24 +1,20 @@
-export function renderRanges(mountain) {
+export function renderRanges(range) {
     const cardEl = document.createElement('div');
     cardEl.classList.add('card');
 
     const nameEl = document.createElement('h2');
-    nameEl.textContent = mountain.name;
+    nameEl.textContent = range.name;
 
     const locationEl = document.createElement('p');
-    locationEl.textContent = mountain.location;
+    locationEl.textContent = range.location;
 
     const elevationEl = document.createElement('p');
-    elevationEl.textContent = mountain.elevation;
+    elevationEl.textContent = range.elevation;
 
     const peaksEl = document.createElement('ul');
-    const peaks = mountain.peaks;
-    // console.log(peaks, 'peaks');
-    for (let peak of mountain.peaks) {
-        console.log(peak, 'peak');
+    for (let peak of range.peaks) {
         const peakEl = document.createElement('li');
         peakEl.textContent = peak;
         peaksEl.append(peakEl);
     }
-    peaksEl.textContent = mountain.peaks;
 }
