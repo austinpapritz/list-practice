@@ -8,3 +8,8 @@ export async function fetchRanges() {
     const response = await client.from('ranges').select('*').order('id');
     return response.data;
 }
+
+export async function fetchLymphocytes() {
+    const response = await client.from('lymphocytes').select('*').order('id');
+    return response.data;
+}
