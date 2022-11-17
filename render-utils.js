@@ -17,4 +17,7 @@ export function renderRanges(range) {
         peakEl.textContent = peak;
         peaksEl.append(peakEl);
     }
+
+    cardEl.append(nameEl, locationEl, elevationEl, peaksEl);
+    return cardEl;
 }
