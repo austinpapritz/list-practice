@@ -1,6 +1,6 @@
 /* Imports */
 import { fetchRanges, fetchLymphocytes, fetchConstellations } from './fetch-utils.js';
-import { renderRanges, renderLymphocytes } from './render-utils.js';
+import { renderRanges, renderLymphocytes, renderConstellations } from './render-utils.js';
 /* Get DOM Elements */
 const rangesCont = document.querySelector('#ranges-container');
 const lymphocytesCont = document.querySelector('#lymphocytes-container');
@@ -35,7 +35,6 @@ async function displayLymphocytes() {
 
 async function displayConstellations() {
     const constellations = await fetchConstellations();
-    console.log(constellations, 'constellation');
     for (let constellation of constellations) {
         const constellationEl = renderConstellations(constellation);
         constellationsCont.append(constellationEl);

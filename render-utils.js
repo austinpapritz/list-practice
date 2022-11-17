@@ -21,6 +21,7 @@ export function renderRanges(range) {
     cardEl.append(nameEl, locationEl, elevationEl, peaksEl);
     return cardEl;
 }
+
 export function renderLymphocytes(lymphocyte) {
     const cardEl = document.createElement('div');
     cardEl.classList.add('card');
@@ -42,5 +43,29 @@ export function renderLymphocytes(lymphocyte) {
     }
 
     cardEl.append(nameEl, functionEl, latinEl, subclassesEl);
+    return cardEl;
+}
+
+export function renderConstellations(constellation) {
+    const cardEl = document.createElement('div');
+    cardEl.classList.add('card');
+
+    const nameEl = document.createElement('h2');
+    nameEl.textContent = constellation.name;
+
+    const brightestEl = document.createElement('p');
+    brightestEl.textContent = constellation.brightest;
+
+    const meaningEl = document.createElement('p');
+    meaningEl.textContent = constellation.meaning;
+
+    const starsEl = document.createElement('ul');
+    for (let star of constellation.stars) {
+        const starEl = document.createElement('li');
+        starEl.textContent = star;
+        starsEl.append(starEl);
+    }
+
+    cardEl.append(nameEl, brightestEl, meaningEl, starsEl);
     return cardEl;
 }
