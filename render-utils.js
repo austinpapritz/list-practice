@@ -69,3 +69,27 @@ export function renderConstellations(constellation) {
     cardEl.append(nameEl, brightestEl, meaningEl, starsEl);
     return cardEl;
 }
+
+export function renderRiches(family) {
+    const cardEl = document.createElement('div');
+    cardEl.classList.add('card');
+
+    const surnameEl = document.createElement('h2');
+    surnameEl.textContent = family.surname;
+
+    const networthEl = document.createElement('p');
+    networthEl.textContent = family.networth;
+
+    const industryEl = document.createElement('p');
+    industryEl.textContent = family.industry;
+
+    const membersEl = document.createElement('ul');
+    for (let member of family.members) {
+        const memberEl = document.createElement('li');
+        memberEl.textContent = member;
+        membersEl.append(memberEl);
+    }
+
+    cardEl.append(surnameEl, networthEl, industryEl, membersEl);
+    return cardEl;
+}

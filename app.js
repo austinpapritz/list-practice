@@ -1,10 +1,17 @@
 /* Imports */
-import { fetchRanges, fetchLymphocytes, fetchConstellations } from './fetch-utils.js';
-import { renderRanges, renderLymphocytes, renderConstellations } from './render-utils.js';
+import { fetchRanges, fetchLymphocytes, fetchConstellations, fetchRiches } from './fetch-utils.js';
+import {
+    renderRanges,
+    renderLymphocytes,
+    renderConstellations,
+    renderRiches,
+} from './render-utils.js';
+
 /* Get DOM Elements */
 const rangesCont = document.querySelector('#ranges-container');
 const lymphocytesCont = document.querySelector('#lymphocytes-container');
 const constellationsCont = document.querySelector('#constellations-container');
+const richesCont = document.querySelector('#riches-container');
 
 /* State */
 
@@ -13,6 +20,7 @@ window.addEventListener('load', async () => {
     await displayRanges();
     await displayLymphocytes();
     await displayConstellations();
+    await displayRiches();
 });
 
 /* Display Functions */
@@ -38,6 +46,14 @@ async function displayConstellations() {
     for (let constellation of constellations) {
         const constellationEl = renderConstellations(constellation);
         constellationsCont.append(constellationEl);
+    }
+}
+
+async function displayRiches() {
+    const riches = await fetchRiches();
+    for (let family of riches) {
+        const familyEl = renderRiches(family);
+        richesCont.append(familyEl);
     }
 }
 // (don't forget to call any display functions you want to run on page load!)

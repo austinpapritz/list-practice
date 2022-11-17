@@ -18,3 +18,8 @@ export async function fetchConstellations() {
     const response = await client.from('constellations').select('*').order('id');
     return response.data;
 }
+
+export async function fetchRiches() {
+    const response = await client.from('riches').select('*').order('id');
+    return response.data;
+}
