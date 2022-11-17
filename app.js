@@ -1,5 +1,5 @@
 /* Imports */
-
+import { fetchMountains } from './fetch-utils.js';
 /* Get DOM Elements */
 
 /* State */
