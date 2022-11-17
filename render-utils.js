@@ -21,3 +21,26 @@ export function renderRanges(range) {
     cardEl.append(nameEl, locationEl, elevationEl, peaksEl);
     return cardEl;
 }
+export function renderLymphocytes(lymphocyte) {
+    const cardEl = document.createElement('div');
+    cardEl.classList.add('card');
+
+    const nameEl = document.createElement('h2');
+    nameEl.textContent = lymphocyte.name;
+
+    const functionEl = document.createElement('p');
+    functionEl.textContent = lymphocyte.function;
+
+    const latinEl = document.createElement('p');
+    latinEl.textContent = lymphocyte.latin;
+
+    const subclassesEl = document.createElement('ul');
+    for (let subclass of lymphocyte.subclasses) {
+        const subclassEl = document.createElement('li');
+        subclassEl.textContent = subclass;
+        subclassesEl.append(subclassEl);
+    }
+
+    cardEl.append(nameEl, functionEl, latinEl, subclassesEl);
+    return cardEl;
+}

@@ -1,6 +1,6 @@
 /* Imports */
 import { fetchRanges, fetchLymphocytes } from './fetch-utils.js';
-import { renderRanges } from './render-utils.js';
+import { renderRanges, renderLymphocytes } from './render-utils.js';
 /* Get DOM Elements */
 const rangesCont = document.querySelector('#ranges-container');
 const lymphocytesCont = document.querySelector('#lymphocytes-container');
@@ -24,7 +24,6 @@ async function displayRanges() {
 
 async function displayLymphocytes() {
     const lymphocytes = await fetchLymphocytes();
-    console.log(lymphocytes, 'lymphocytes');
     for (let lymphocyte of lymphocytes) {
         const lymphocyteEl = renderLymphocytes(lymphocyte);
         lymphocytesCont.append(lymphocyteEl);
