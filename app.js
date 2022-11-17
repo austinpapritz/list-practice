@@ -7,13 +7,16 @@ const rangesCont = document.querySelector('#ranges-container');
 
 /* Events */
 window.addEventListener('load', async () => {
+    await displayRanges();
+});
+
+/* Display Functions */
+
+async function displayRanges() {
     const ranges = await fetchRanges();
     for (let range of ranges) {
         const rangeEl = renderRanges(range);
         rangesCont.append(rangeEl);
     }
-});
-
-/* Display Functions */
-
+}
 // (don't forget to call any display functions you want to run on page load!)
